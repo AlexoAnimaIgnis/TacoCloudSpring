@@ -3,9 +3,20 @@
        xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Taco Cloud</title>
+    <link rel="stylesheet" th:href="@/styles.css}"/>
 </head>
 <body>
     <h1>Welcome to...</h1>
     <img th:src="@{/images/image1.jpeg}">
+
+    <form method="POST" th:object="${design}"></form>
+    <div class="grid">
+        <div class="ingredient-group" id="wraps">
+            <h3>Designate your wrap</h3>
+            <div th:each="ingredient : ${wrap}">
+                <input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
